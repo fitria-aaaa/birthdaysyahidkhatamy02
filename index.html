@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>02 Maret 2006</title>
+<link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
+<style>
+/* TEMA WARNA ELEGANT LUXURY */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Marck Script', cursive;
+  background: radial-gradient(circle at center, #1a2332 0%, #080c14 100%); 
+  color: #e2d1b1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden; 
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 400px; 
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.content-box {
+  position: absolute;
+  width: 85%; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.8s ease-in-out;
+  text-align: center;
+}
+
+.content-box.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* PERBAIKAN RATA KIRI AGAR TETAP CENTER SECARA POSISI */
+.align-left {
+  text-align: left !important;
+  width: 100%;
+  display: block;
+}
+
+/* BINGKAI FOTO STABIL & TIDAK MEMOTONG GAMBAR */
+.photo-frame {
+  width: 280px; 
+  height: auto;
+  padding: 10px 10px 35px 10px;
+  background: #f4eee0;
+  border-radius: 2px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.7);
+  margin-bottom: 20px;
+  transform: rotate(0deg); 
+}
+
+.photo-frame img {
+  width: 100%;
+  max-height: 350px; 
+  object-fit: contain; 
+  display: block;
+  filter: sepia(5%);
+  background: #f4eee0;
+}
+
+.typewriter-container {
+  width: 100%;
+  max-height: 160px;
+  overflow-y: auto;
+  margin-top: 10px;
+  padding: 5px;
+  scrollbar-width: none;
+}
+
+.typewriter-container::-webkit-scrollbar { display: none; }
+
+.typewriter {
+  font-size: 17px;
+  line-height: 1.6;
+  color: #d1c1a5;
+}
+
+.btn-arrow {
+  background: transparent;
+  border: 1px solid #e2d1b1;
+  color: #e2d1b1;
+  font-size: 20px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+
+.glow-blue {
+  font-size: 22px;
+  line-height: 1.5;
+  text-shadow: 0 0 10px rgba(226, 209, 177, 0.3);
+}
+
+/* EFEK STIKER AESTHETIC */
+.aesthetic-particle {
+  position: fixed;
+  pointer-events: none;
+  z-index: 10;
+  color: rgba(226, 209, 177, 0.4); 
+  filter: blur(0.5px);
+}
+
+@keyframes rise {
+  0% { transform: translateY(110vh) scale(0.5); opacity: 0; }
+  50% { opacity: 0.6; }
+  100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+}
+
+@keyframes fall {
+  0% { transform: translateY(-10vh) translateX(0); opacity: 0; }
+  50% { opacity: 0.4; }
+  100% { transform: translateY(110vh) translateX(40px); opacity: 0; }
+}
+</style>
+</head>
+<body>
+
+<audio id="bgmusic" loop>
+  <source src="about_you_reff.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+  <div id="slide-0" class="content-box active">
+    <h1 style="font-size: 35px; margin-bottom: 5px;">your birthday 🎂</h1>
+    <h2 style="opacity: 0.4; font-size: 16px; letter-spacing: 4px;">02 . 03 . 2006</h2>
+    <button class="btn-arrow" onclick="startApp()">➜</button>
+  </div>
+
+  <div id="slide-1" class="content-box">
+    <div class="glow-blue align-left">
+      hai👋🏻 ksatriakuhh... <br> 
+      sudah lama tidak saling menyapa. <br><br>
+      tapi.. aku harap kamu baik-baik saja, <br>
+      dan merasa lebih bahagia di hari spesialmu.
+    </div>
+    <button class="btn-arrow" onclick="goToSlide(2)">➜</button>
+  </div>
+
+  <div id="slide-2" class="content-box">
+    <div class="glow-blue align-left">
+      Waittt... <br> 
+      tepat hari ini adalah hari spesialmu, <br>sekarang kita berdo'a dulu yuu <br>
+      agar hal-hal baik akan berdatangan🤲🏻✨️
+    </div>
+    <button class="btn-arrow" onclick="goToSlide('2a')">➜</button>
+  </div>
+
+  <div id="slide-2a" class="content-box">
+    <div class="glow-blue align-left">
+      sebelum itu.... aku ingin meminta maaf, karena di kondisi LDR ini aku belum mampu memberikan pelukan nyata untukmu ksatriakuhh... <br><br>
+      pelukan yang mungkin akan meredakan kebisingan dunia di kepalamu, yang mampu menenangkanmu disaat hatimu lelah.
+    </div>
+    <button class="btn-arrow" onclick="goToSlide('2b')">➜</button>
+  </div>
+
+  <div id="slide-2b" class="content-box">
+    <div class="glow-blue align-left">
+      tetapi jarak tidak bisa menjadi alasan.. aku akan memberikan pelukan untukmu lewat kata-kata dan sedikit foto-foto kenangan kita✨️
+    </div>
+    <button class="btn-arrow" onclick="goToSlide('2c')">➜</button>
+  </div>
+
+  <div id="slide-2c" class="content-box">
+    <div class="glow-blue align-left">
+      kamu siap? <br><br>
+      siapkan hatimu dengan hangat untuk menyimak beberapa kata-kata dariku yaa😌 yang aku harap itu dapat sedikit memeluk hatimu.
+    </div>
+    <button class="btn-arrow" onclick="goToSlide('2d')">➜</button>
+  </div>
+
+  <div id="slide-2d" class="content-box">
+    <div class="glow-blue align-left">
+      aku yakin siapapun yang berada di hidupmu, akan melihat betapa berharganya kamu... <br><br>
+      dan aku bahagia pernah menjadi seorang wanita yang dicintai sebegitunya oleh laki-laki sepertimu. 💙
+    </div>
+    <button class="btn-arrow" onclick="goToSlide(3)">➜</button>
+  </div>
+
+  <div id="slide-3" class="content-box">
+    <div class="photo-frame"><img src="foto1.jpeg"></div>
+    <div class="typewriter-container"><div id="text-3" class="typewriter"></div></div>
+    <button class="btn-arrow" onclick="goToSlide(4)">➜</button>
+  </div>
+
+  <div id="slide-4" class="content-box">
+    <div class="photo-frame"><img src="foto2.jpeg"></div>
+    <div class="typewriter-container"><div id="text-4" class="typewriter"></div></div>
+    <button class="btn-arrow" onclick="goToSlide(5)">➜</button>
+  </div>
+
+  <div id="slide-5" class="content-box">
+    <div class="photo-frame"><img src="foto3.jpeg"></div>
+    <div class="typewriter-container"><div id="text-5" class="typewriter"></div></div>
+    <button class="btn-arrow" onclick="goToSlide(6)">➜</button>
+  </div>
+
+  <div id="slide-6" class="content-box">
+    <div class="glow-blue" style="font-size: 24px;">
+      terima kasih sudah lahir,<br>
+      terima kasih sudah tumbuh,<br>
+      dan telah menjadi seseorang yang berarti. 💙<br>
+      <span style="font-size: 18px;">Aishiteru (愛してる)</span>
+    </div>
+    <p style="opacity: 0.4; margin-top: 20px; font-size: 14px;">— dari aku, yang selalu mendoakanmu -arutala🌛 —</p>
+  </div>
+</div>
+
+<script>
+const dataText = {
+  3: "di tanggal ini, seseorang yang istimewa hadir dan membuat dunia terasa sedikit lebih hangat. mungkin semesta tidak sadar, tetapi hari itu ia sedang menitipkan cahaya pada seorang laki-laki yang kelak tumbuh dengan caranya sendiri. dan sejak aku mengenalmu, aku tahu cahaya itu nyata. bukan hanya dari senyummu, tetapi dari caramu memperlakukan dunia dengan lembut, dengan sabar, dengan hati yang jarang dimiliki banyak orang. ✨",
+  4: "senyummu adalah rumah yang tenang, tempat segala lelah ingin pulang. caramu tertawa seperti pengingat bahwa hidup tak selalu harus tergesa. aku menyukai caramu berjalan pelan, caramu bercerita, bahkan caramu diam. di antara banyak hal yang tak pasti di dunia ini, entah mengapa melihatmu baik-baik saja selalu menjadi doaku yang paling sungguh. karena bahagiaku sederhana, cukup tahu bahwa kamu baik-baik saja dan tetap menjadi dirimu sendiri. ☁️",
+  5: "bertambahnya usiamu bukan hanya tentang angka, tetapi tentang langkah yang sudah kau tempuh dengan berani. semoga tahun-tahun ke depan membawamu pada bahagia yang lebih luas, mimpi yang lebih dekat, dan hati yang tetap hangat seperti sekarang. dan jika suatu hari dunia terasa berat, ingatlah bahwa ada seorang wanita di sini yang akan selalu menunggumu pulang, selalu mendoakanmu dalam diam, yang diam-diam menyebut namamu dalam harapan, dan yang selalu bersyukur karena kamu pernah hadir dihidupnya. 💙"
+};
+
+function startApp() {
+  const music = document.getElementById('bgmusic');
+  music.play().catch(() => {});
+  goToSlide(1);
+  setInterval(createAestheticEffect, 600);
+}
+
+function createAestheticEffect() {
+  const p = document.createElement("div");
+  p.className = "aesthetic-particle";
+  const isSparkle = Math.random() > 0.5;
+  p.innerHTML = isSparkle ? "✨" : "•";
+  p.style.left = Math.random() * 100 + "vw";
+  p.style.fontSize = (Math.random() * 12 + 10) + "px";
+  p.style.animation = isSparkle ? `rise ${Math.random()*3+4}s linear forwards` : `fall ${Math.random()*5+7}s linear forwards`;
+  document.body.appendChild(p);
+  setTimeout(() => p.remove(), 12000);
+}
+
+function goToSlide(n) {
+  document.querySelectorAll('.content-box').forEach(s => s.classList.remove('active'));
+  const next = document.getElementById('slide-' + n);
+  if(next) next.classList.add('active');
+  if(dataText[n]) typeWriter(document.getElementById('text-' + n), dataText[n]);
+}
+
+function typeWriter(element, text) {
+  if(!element) return;
+  element.innerHTML = "";
+  let i = 0;
+  function typing() {
+    if (i < text.length) {
+      element.innerHTML += text.charAt(i);
+      i++;
+      element.parentElement.scrollTop = element.parentElement.scrollHeight;
+      setTimeout(typing, 35);
+    }
+  }
+  typing();
+}
+</script>
+</body>
+</html>
